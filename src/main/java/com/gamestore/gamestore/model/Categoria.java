@@ -3,7 +3,6 @@ package com.gamestore.gamestore.model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.gamestore.gamestore.model.Produto;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -51,7 +50,7 @@ public class Categoria {
 		return produtos;
 	}
 
-	public void setProduto(List<Produto> produtos) {
+	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
 
