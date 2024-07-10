@@ -1,5 +1,7 @@
 package com.gamestore.gamestore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -35,7 +37,7 @@ public class Produto {
     private Integer quantidade;
     
     @ManyToOne
-
+    @JsonIgnoreProperties("produtos")
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
