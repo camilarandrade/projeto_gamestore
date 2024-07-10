@@ -8,8 +8,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.gamestore.gamestore.model.Categoria;
 
 @Entity
@@ -28,14 +30,15 @@ public class Produto {
     @Size(min = 10, max = 1000, message = "A descrição deve conter no mínimo 10 e no máximo 1000 caracteres")
     private String descricao;
     
-    @NotBlank(message = "O preço é obrigatório!")
+    @NotNull(message = "O preço é obrigatório!")
     private Float preco;
     
-    @NotBlank(message = "A quantidade é obrigatório!")
+    @NotNull(message = "A quantidade é obrigatório!")
     private Integer quantidade;
     
     @ManyToOne
-   	@JoinColumn(name = "categoria_id")
+    @JsonIgnoreProperties("produto")
+//   	@JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
 	public Long getId() {
